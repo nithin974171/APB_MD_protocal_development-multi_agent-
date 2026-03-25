@@ -102,7 +102,7 @@ Data sent only when md_tx_ready = 1
 
 # Verification Architecture (UVM)
 
-tb_architecture_of_project.png
+[tb_architecture_of_project.png](https://github.com/nithin974171/APB_MD_protocal_development-multi_agent-/blob/main/tb_architecture_of_project.png)
 
 # Scoreboard
 
