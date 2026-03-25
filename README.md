@@ -116,19 +116,24 @@ Expected Queue  vs  Actual Queue
 - Data integrity
 
 # TEST Scenarios
+
 -> Basic
 - Register Read/Write
 - Single RX → TX transfer
+  
 ->  Alignment
 - SIZE = 1, 2, 4
 - OFFSET variations
+  
 -> Error Cases
 - Invalid (offset, size)
 - Register illegal access
+  
 -> Stress
 - Random traffic
 -  Back-to-back transfers
 - FIFO full/empty
+  
 -> Interrupt Testing
 -  RX/TX FIFO conditions
 - Drop counter max
