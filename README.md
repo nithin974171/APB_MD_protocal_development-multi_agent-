@@ -11,7 +11,7 @@ Supports alignment based on SIZE and OFFSET
 The Aligner performs:
 
 Accepts unaligned input stream (RX)
-Aligns data based on:
+* Aligns data based on:
 CTRL.SIZE
 CTRL.OFFSET
 Outputs aligned data via TX interface
