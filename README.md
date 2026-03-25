@@ -75,77 +75,60 @@ Used to configure DUT registers:
 
 # Illegal combinations → APB error
 - >Status Register
- CNT_DROP → invalid transfers count
- RX_LVL → RX FIFO level
- TX_LVL → TX FIFO level
+ - CNT_DROP → invalid transfers count
+ - RX_LVL → RX FIFO level
+ - TX_LVL → TX FIFO level
 
  # Functional Behavior
- Data Alignment
-The DUT rearranges incoming data based on configuration.
+ - > Data Alignment
+- The DUT rearranges incoming data based on configuration.
 - > Example (from datasheet Page 10):
+- SIZE = 1 → byte-wise alignment
+- SIZE = 2 → half-word alignment
+- SIZE = 4 → word alignment
 
-SIZE = 1 → byte-wise alignment
-SIZE = 2 → half-word alignment
-SIZE = 4 → word alignment
- -> Flow Control
-RX Side
-- > If FIFO full → md_rx_ready = 0
-Invalid transfer → md_rx_err = 1
-- > TX Side
+  # Flow Control
+- > RX Side
+ -  If FIFO full → md_rx_ready = 0
+- >Invalid transfer → md_rx_err = 1
+-  TX Side
 Data sent only when md_tx_ready = 1
 
 # Interrupts
 - > Generated for:
-RX FIFO empty/full
-TX FIFO empty/full
-Drop counter max
+- RX FIFO empty/full
+- TX FIFO empty/full
+- Drop counter max
 
 # Verification Architecture (UVM)
 
 tb_architecture_of_project.png
 
-Components
- -> RX Agent
-Drives MD RX transactions
-Handles:
-Offset
-Size
-Valid/Ready handshake
- -> TX Agent
-Monitors aligned output
-Captures:
-Data
-Offset
-Size
-  -> APB Agent
-Drives register configuration
-Reads status/interrupts
-
 # Scoreboard
 
-Expected data → derived from RX stream + config
-Actual data → captured from TX monitor
-Comparison:
+- Expected data → derived from RX stream + config
+- Actual data → captured from TX monitor
+- > Comparison:
 Expected Queue  vs  Actual Queue
 -> Validates:
-Alignment correctness
-Order preservation
-Data integrity
+- Alignment correctness
+- Order preservation
+- Data integrity
 
 # TEST Scenarios
 -> Basic
-Register Read/Write
-Single RX → TX transfer
+- Register Read/Write
+- Single RX → TX transfer
 ->  Alignment
-SIZE = 1, 2, 4
-OFFSET variations
+- SIZE = 1, 2, 4
+- OFFSET variations
 -> Error Cases
-Invalid (offset, size)
-Register illegal access
+- Invalid (offset, size)
+- Register illegal access
 -> Stress
-Random traffic
-Back-to-back transfers
-FIFO full/empty
+- Random traffic
+-  Back-to-back transfers
+- FIFO full/empty
 -> Interrupt Testing
-RX/TX FIFO conditions
-Drop counter max
+-  RX/TX FIFO conditions
+- Drop counter max
