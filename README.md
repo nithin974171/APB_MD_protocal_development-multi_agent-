@@ -38,43 +38,43 @@ Used to configure DUT registers:
 - >    PSLVERR      	Error
 
 # Notes:
-Address is word-aligned (paddr[1:0] ignored)
-Max wait states ≤ 5
+- > Address is word-aligned (paddr[1:0] ignored)
+- > Max wait states ≤ 5
 
 # MD Protocol (Data Path)
-RX Interface (Input)
-md_rx_valid
-md_rx_data
-md_rx_offset
-md_rx_size
-md_rx_ready
-md_rx_err
+- > RX Interface (Input)
+-  md_rx_valid
+- md_rx_data
+- md_rx_offset
+- md_rx_size
+- md_rx_ready
+- md_rx_err
 
-TX Interface (Output)
-md_tx_valid
-md_tx_data
-md_tx_offset
-md_tx_size
-md_tx_ready
-md_tx_err
+- > TX Interface (Output)
+-  md_tx_valid
+-  md_tx_data
+-  md_tx_offset
+-  md_tx_size
+-  md_tx_ready
+-  md_tx_err
 
 # Rule
-((DATA_WIDTH/8) + offset) % size == 0   → Valid transfer
+- ((DATA_WIDTH/8) + offset) % size == 0   → Valid transfer
 
 # Register Map
 # Register	      Offset	          Description
-  CTRL	          0x0000	          Config (SIZE, OFFSET)
- STATUS	          0x000C	          FIFO levels, drop count
- IRQEN	          0x00F0	          Interrupt enable
- IRQ	            0x00F4	          Interrupt status
+ -  CTRL	          0x0000	          Config (SIZE, OFFSET)
+ - STATUS	          0x000C	          FIFO levels, drop count
+ - IRQEN	          0x00F0	          Interrupt enable
+ -  IRQ	            0x00F4	          Interrupt status
 
-# Control Register (Important)
-SIZE → alignment size
-OFFSET → alignment offset
-CLR → clear drop counter
+# Control Register (Important)- 
+- SIZE → alignment size
+- OFFSET → alignment offset
+- CLR → clear drop counter
 
 # Illegal combinations → APB error
- Status Register
+- >Status Register
  CNT_DROP → invalid transfers count
  RX_LVL → RX FIFO level
  TX_LVL → TX FIFO level
