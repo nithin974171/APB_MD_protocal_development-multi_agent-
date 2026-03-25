@@ -89,13 +89,13 @@ SIZE = 2 → half-word alignment
 SIZE = 4 → word alignment
  -> Flow Control
 RX Side
-If FIFO full → md_rx_ready = 0
+- > If FIFO full → md_rx_ready = 0
 Invalid transfer → md_rx_err = 1
-TX Side
+- > TX Side
 Data sent only when md_tx_ready = 1
 
 # Interrupts
-Generated for:
+- > Generated for:
 RX FIFO empty/full
 TX FIFO empty/full
 Drop counter max
