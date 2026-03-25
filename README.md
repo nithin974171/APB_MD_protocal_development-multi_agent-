@@ -27,15 +27,15 @@ Internal Controller
 
 Used to configure DUT registers:
 
-Signal	      Description
-PSEL	        Select
-PENABLE      	Enable
-PWRITE    	  Read/Write
-PADDR        	Address
-PWDATA      	Write Data
-PRDATA      	Read Data
-PREADY      	Ready
-PSLVERR      	Error
+# - >   Signal	      Description
+- >   PSEL	        Select
+- >    PENABLE      	Enable
+- >    PWRITE    	  Read/Write
+- >    PADDR        	Address
+- >    PWDATA      	Write Data
+- >    PRDATA      	Read Data
+- >    PREADY      	Ready
+- >    PSLVERR      	Error
 
 # Notes:
 Address is word-aligned (paddr[1:0] ignored)
